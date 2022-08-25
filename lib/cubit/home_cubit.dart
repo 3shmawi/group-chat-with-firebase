@@ -60,14 +60,4 @@ class HomeCubit extends Cubit<HomeState> {
     });
   }
 
-  Stream? messagesStream;
-
-  receiveMessage() {
-    messagesStream = FirebaseFirestore.instance
-        .collection('chat')
-        .orderBy('time')
-        .snapshots();
-    print('  data data${messagesStream}');
-    emit(GetMessageSuccessState());
-  }
 }
